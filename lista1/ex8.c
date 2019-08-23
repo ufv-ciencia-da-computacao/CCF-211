@@ -19,9 +19,14 @@ int main () {
 void preenche() {
   Compra compra[4];
   int i=0;
-  do {
+  while (1) {
     printf("Estado: ");
     scanf("%s", compra[i].estado);
+    
+    if (strcmp(compra[i].estado, "fim")) {
+      break;
+    }
+    
     printf("CPF: ");
     scanf("%s", compra[i].cpf);
     printf("Nome: ");
@@ -31,7 +36,7 @@ void preenche() {
     scanf(" %lf", &compra[i].preco);
     __fpurge(stdin);
     i++;
-  } while (!strcmp(compra[i].estado, "fim"));
+  }
   
   imprime(compra, 4);
   
